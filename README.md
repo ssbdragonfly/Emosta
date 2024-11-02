@@ -2,6 +2,8 @@
 
 Emosta is a web application that recommends pasta shapes based on the user's current emotions. It uses image analysis and AI to detect emotions from uploaded or captured photos, and then generates personalized pasta recommendations. Made by Shaurya Bisht.
 
+Tried my best to work to deploy it, but I should've used Next because there aren't good/scalaable services for flask apps.
+
 ## Features
 
 - Live camera capture
