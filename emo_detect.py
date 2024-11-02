@@ -1,9 +1,13 @@
 from transformers import pipeline
+import torch
+
 
 classifier = pipeline(
     "image-classification",
     model="dima806/facial_emotions_image_detection",
-    framework="pt"
+    framework="pt",
+    device=-1,
+    torch_dtype=torch.float32
 )
 
 #input: image path, outputs emotion based on above model
