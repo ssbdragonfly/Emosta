@@ -1,6 +1,6 @@
 # Emosta: Emotion-based Pasta Recommender
 
-Emosta is a web application that recommends pasta shapes based on the user's current emotions. It uses image analysis and AI to detect emotions from uploaded or captured photos, and then generates personalized pasta recommendations.
+Emosta is a web application that recommends pasta shapes based on the user's current emotions. It uses image analysis and AI to detect emotions from uploaded or captured photos, and then generates personalized pasta recommendations. Made by Shaurya Bisht.
 
 ## Features
 
