@@ -6,6 +6,10 @@ I got it deployed on onrender! Check it out here: https://emosta.onrender.com/
 
 Note that the AI model is not perfect, and the recommendations may not always be accurate. Also note that this is purely for fun and not meant for serious use (unlesss you're a pasta lover). 
 
+## Demo (Click!)
+
+[![Watch the video](https://img.youtube.com/vi/lE1GF6BJjzM/0.jpg)](https://www.youtube.com/watch?v=lE1GF6BJjzM)
+
 ## Features
 
 - Live camera capture
