@@ -305,3 +305,42 @@ footer {
     align-items: center;
     gap: 8px;
 }
+
+@media (max-width: 768px) {
+    .popup-card {
+        width: 100%;
+        height: auto;
+        max-height: 90vh;
+        overflow-y: auto;
+        margin: 0;
+        border-radius: 20px 20px 0 0;
+        bottom: 0;
+        top: auto;
+        transform: translateX(-50%);
+    }
+
+    .pasta-result {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pasta-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+    }
+
+    .pasta-info {
+        width: 100%;
+        text-align: center;
+    }
+
+    .camera-container {
+        margin: 15px 0;
+    }
+
+    #video {
+        width: 100%;
+        height: auto;
+    }
+}
