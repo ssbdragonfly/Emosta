@@ -7,15 +7,15 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
     margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, var(--light-color), #fff);
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, var(--light-color), #fff);
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 40px auto;
     background-color: white;
     padding: 40px;
@@ -39,8 +39,9 @@ h1 {
 }
 
 .camera-container {
-    position: relative;
-    margin: 30px 0;
+    width: 100%;
+    max-width: 640px;
+    margin: 30px auto;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -69,16 +70,15 @@ button {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: white;
 }
 
 #capture {
     background-color: var(--primary-color);
-    color: white;
 }
 
 #upload {
     background-color: var(--secondary-color);
-    color: white;
 }
 
 button:hover {
@@ -86,56 +86,6 @@ button:hover {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-#result {
-    margin-top: 30px;
-    padding: 30px;
-    border-radius: 15px;
-    background-color: var(--light-color);
-    transition: all 0.3s ease;
-}
-
-#result h3 {
-    color: var(--dark-color);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
-
-#result p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #555;
-    margin: 10px 0;
-}
-
-.error {
-    color: var(--primary-color);
-    font-weight: 500;
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(255,107,107,0.1);
-    border-radius: 10px;
-}
-
-@media (max-width: 768px) {
-    .container {
-        margin: 20px;
-        padding: 20px;
-    }
-    
-    h1 {
-        font-size: 2.5rem;
-    }
-    
-    .controls {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    button {
-        width: 100%;
-        max-width: 300px;
-    }
-}
 .popup-card {
     position: fixed;
     top: 50%;
@@ -204,4 +154,138 @@ button:hover {
 .recommendation {
     line-height: 1.6;
     font-size: 1.1em;
+}
+
+.floating-emojis {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.15;
+}
+
+.emoji {
+    position: fixed;
+    font-size: 24px;
+    pointer-events: none;
+    opacity: 0;
+    will-change: transform;
+}
+
+.emoji.left {
+    animation: floatLeft 6s ease-in-out infinite;
+}
+
+.emoji.right {
+    animation: floatRight 6s ease-in-out infinite;
+}
+
+.emoji.center {
+    animation: floatCenter 6s ease-in-out infinite;
+}
+
+@keyframes floatLeft {
+    0% {
+        transform: translateY(100vh) translateX(-20vw) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(20vw) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatRight {
+    0% {
+        transform: translateY(100vh) translateX(120vw) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(80vw) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatCenter {
+    0% {
+        transform: translateY(100vh) translateX(50vw) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-20vh) translateX(50vw) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+.emoji {
+    position: absolute;
+    font-size: 2rem;
+    animation: float 10s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(var(--rotation));
+        opacity: 0;
+    }
+}
+.speak-btn {
+    background-color: var(--accent-color);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.speak-btn:hover {
+    background-color: #ffc107;
 }

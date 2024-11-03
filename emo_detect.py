@@ -1,18 +1,8 @@
-from transformers import pipeline
-import torch
+from deepface import DeepFace
 
-
-classifier = pipeline(
-    "image-classification",
-    model="dima806/facial_emotions_image_detection",
-    framework="pt",
-    device=-1,
-    torch_dtype=torch.float32
-)
-
-#input: image path, outputs emotion based on above model
+#input: image path, outputs emotion based on below model
 def detect_emotion(img):
-    result = classifier(img)
+    result = DeepFace.analyze(img, actions=['emotion'], enforce_detection=False)
     emotion_map = {
         'happy': 'happy',
         'sad': 'sad',
@@ -22,5 +12,5 @@ def detect_emotion(img):
         'fear': 'neutral',
         'disgust': 'angry'
     }
-    emotion = result[0]['label'].lower()
+    emotion = result[0]['dominant_emotion']
     return emotion_map.get(emotion, 'neutral')

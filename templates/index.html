@@ -8,13 +8,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <div class="floating-emojis">
+        <div class="emoji left">🍝</div>
+        <div class="emoji left">🍜</div>
+        <div class="emoji left">🫕</div>
+        <div class="emoji left">😊</div>
+        <div class="emoji left">😌</div>
+        <div class="emoji left">🍝</div>
+        <div class="emoji left">🍜</div>
+        <div class="emoji left">🫕</div>
+        <div class="emoji left">😊</div>
+        <div class="emoji right">🍝</div>
+        <div class="emoji right">🍜</div>
+        <div class="emoji right">🫕</div>
+        <div class="emoji right">😊</div>
+        <div class="emoji right">😌</div>
+        <div class="emoji right">🍝</div>
+        <div class="emoji right">🍜</div>
+        <div class="emoji right">🫕</div>
+        <div class="emoji right">😊</div>
+        <div class="emoji center">✨</div>
+        <div class="emoji center">🤗</div>
+        <div class="emoji center">🍝</div>
+        <div class="emoji center">✨</div>
+        <div class="emoji center">🤗</div>
+        <div class="emoji center">🍝</div>
+    </div>    
     <div class="container">
         <h1>Emosta</h1>
-        <p class="subtitle">Let your emotions and setting guide your pasta choice</p>
+        <p class="subtitle">Let your emotions guide your pasta journey</p>
 
         <div class="camera-container">
-            <video id="video" width="640" height="480" autoplay></video>
-            <canvas id="canvas" width="640" height="480" style="display:none;"></canvas>
+            <video id="video" autoplay></video>
+            <canvas id="canvas" style="display:none;"></canvas>
         </div>
 
         <div class="controls">
@@ -22,13 +48,14 @@
             <button id="upload">📤 Upload Photo</button>
             <input type="file" id="file-input" accept="image/*" style="display:none;">
         </div>
-            <div id="result-popup" class="popup-card hidden">
-                <div class="popup-content">
-                    <span class="close-btn">×</span>
-                    <div id="result"></div>
-                </div>
+
+        <div id="result-popup" class="popup-card hidden">
+            <div class="popup-content">
+                <span class="close-btn">×</span>
+                <div id="result"></div>
             </div>
         </div>
+    </div>
 
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

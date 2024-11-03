@@ -62,7 +62,7 @@ def upload():
             return jsonify({
                 'emotion': emotion,
                 'pasta_shape': pasta_result['shape'],
-                'recommendation': pasta_result['full_recommendation'],
+                'recommendation': pasta_result['full_recommendation'].replace("*",""),
                 'image_url': pasta_result['image_url']
             })
             

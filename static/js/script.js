@@ -1,3 +1,26 @@
+function initFloatingEmojis() {
+    const emojis = document.querySelectorAll('.emoji');
+    emojis.forEach(emoji => {
+        const startX = Math.random() * 100;
+        const startY = 100 + Math.random() * 20; 
+        const rotationSpeed = Math.random() * 360;
+        
+        emoji.style.left = `${startX}vw`;
+        emoji.style.bottom = `${startY}vh`;
+        emoji.style.transform = `rotate(${rotationSpeed}deg)`;
+        emoji.style.animationDuration = `${8 + Math.random() * 7}s`;
+        emoji.style.animationDelay = `${Math.random() * 0.5}s`;
+    });
+}
+
+window.speakRecommendation = function(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = 'it-IT';
+    utterance.rate = 0.9;
+    utterance.pitch = 1.1;
+    speechSynthesis.speak(utterance);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     const video = document.getElementById('video');
     const canvas = document.getElementById('canvas');
@@ -5,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const uploadBtn = document.getElementById('upload');
     const resultDiv = document.getElementById('result');
     const fileInput = document.getElementById('file-input');
+    
+    initFloatingEmojis();
     
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video: true })
@@ -53,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="pasta-shape">Recommended Pasta: ${data.pasta_shape}</p>
                         <p class="emotion">Detected Emotion: ${data.emotion}</p>
                         <p class="recommendation">${data.recommendation}</p>
+                        <button class="speak-btn" onclick="speakRecommendation(\`${data.recommendation}\`)">🗣️ Listen to Recommendation</button>
                     </div>
                 </div>
             `;
@@ -65,5 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }    
     document.querySelector('.close-btn').addEventListener('click', () => {
         document.getElementById('result-popup').classList.add('hidden');
+        speechSynthesis.cancel();
     });    
 });
