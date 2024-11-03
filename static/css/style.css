@@ -344,3 +344,22 @@ footer {
         height: auto;
     }
 }
+@media (max-width: 768px) {
+    .camera-container,
+    #capture {
+        display: none;
+    }
+
+    #upload {
+        width: 80%;
+        max-width: 300px;
+        padding: 20px;
+        font-size: 1.2rem;
+        margin: 40px auto;
+        display: block;
+    }
+
+    .controls {
+        margin: 20px 0;
+    }
+}
