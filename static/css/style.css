@@ -289,3 +289,19 @@ button:hover {
 .speak-btn:hover {
     background-color: #ffc107;
 }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+    margin-top: 40px;
+}
+
+.share-btn {
+    background-color: var(--accent-color);
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

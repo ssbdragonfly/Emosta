@@ -1,7 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Emosta - Emotion-based Pasta Recommender</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emosta - Where emotions meet pasta! Let AI match your mood with the perfect pasta shape. A delightful blend of emotion detection and Italian culinary wisdom.">
+    <meta name="keywords" content="pasta recommendation, emotion detection, AI, Italian food, mood food">
+    <meta property="og:title" content="Emosta - Emotional Pasta Matchmaker">
+    <meta property="og:description" content="Discover your perfect pasta match based on your emotional state!">
+    <meta property="og:image" content="{{ url_for('static', filename='images/emosta-high-resolution-logo-transparent.png') }}">
+    <meta property="og:url" content="https://emosta.app">
+    
+    <title>Emosta ✨ Your Emotional Pasta Companion</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/emosta-high-resolution-logo-transparent.png') }}">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
@@ -35,8 +46,8 @@
         <div class="emoji center">🍝</div>
     </div>    
     <div class="container">
-        <h1>Emosta</h1>
-        <p class="subtitle">Let your emotions guide your pasta journey</p>
+        <h1>Emosta ✨</h1>
+        <p class="subtitle">Where Emotions Meet Pasta 🍝 | Let Your Mood Guide Your Perfect Plate</p>
 
         <div class="camera-container">
             <video id="video" autoplay></video>
@@ -55,8 +66,10 @@
                 <div id="result"></div>
             </div>
         </div>
+        <footer>
+            <p>Made with ❤️ by Shaurya Bisht</p>
+        </footer>
     </div>
-
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

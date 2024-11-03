@@ -79,10 +79,25 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="emotion">Detected Emotion: ${data.emotion}</p>
                         <p class="recommendation">${data.recommendation}</p>
                         <button class="speak-btn" onclick="speakRecommendation(\`${data.recommendation}\`)">🗣️ Listen to Recommendation</button>
+                        <button class="share-btn" onclick="shareResult('${data.pasta_shape}', '${data.emotion}')">🔗 Share This Match</button>
                     </div>
                 </div>
             `;
-            
+            window.shareResult = function(pastaShape, emotion) {
+                const shareText = `I got matched with ${pastaShape} pasta based on my ${emotion} mood! Try Emosta yourself:`;
+                const shareUrl = window.location.href;
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'My Pasta Match',
+                        text: shareText,
+                        url: shareUrl
+                    });
+                } else {
+                    const fullText = `${shareText} ${shareUrl}`;
+                    navigator.clipboard.writeText(fullText);
+                    alert('Link copied to clipboard!');
+                }
+            }            
             popup.classList.remove('hidden');
         })
         .catch(error => {
