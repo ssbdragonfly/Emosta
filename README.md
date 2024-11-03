@@ -2,7 +2,9 @@
 
 Emosta is a web application that recommends pasta shapes based on the user's current emotions. It uses image analysis and AI to detect emotions from uploaded or captured photos, and then generates personalized pasta recommendations. Made by Shaurya Bisht.
 
-Tried my best to work to deploy it, but I should've used Next because there aren't good/scalaable services for flask apps.
+I got it deployed on onrender! Check it out here: https://emosta.onrender.com/
+
+Note that the AI model is not perfect, and the recommendations may not always be accurate. Also note that this is purely for fun and not meant for serious use (unlesss you're a pasta lover). 
 
 ## Features
 
@@ -12,69 +14,60 @@ Tried my best to work to deploy it, but I should've used Next because there aren
 - Environmental context analysis (lighting and warmth)
 - AI-powered pasta recommendations via Google Gemini
 - Visual pasta suggestions with Pexels API integration
+- Analytics with Plausible Analytics
 
 ## Technologies Used
 
-- Backend: Flask (Python)
-- Frontend: HTML, CSS, JavaScript
-- AI Models:
-- Emotion Detection: Hugging Face Transformers
-- Recommendation Engine: Google Gemini AI
-- Image Processing: OpenCV
-- Image Search: Pexels API
+- Flask
+- DeepFace
+- TensorFlow
+- OpenCV
+- Google Generative AI
+- Pexels API
 
-## Setup
-
-1. Clone the repository `git clone https://github.com/yourusername/emosta.git`
-2. Install dependencies: `pip install -r requirements.txt`
-3. Set up environment variables in your .env file:
-`GEMINI_API_KEY: Your Google Gemini API key PEXELS_API_KEY=your_pexels_api_key`
-4. Run the application: `python app.py`
-
-## Usage
-
-1. Open the application in your browser
-2. Allow camera access or use the upload button
-3. Take/select a photo
-4. Receive your personalized pasta recommendation!
-
-## Note
-
-This application is for demonstration purposes and may require additional error handling and security measures for production use.
-
-## Setup and Installation
+## Installation
 
 1. Clone the repository:
-   ```
-   git clone https://github.com/yourusername/emosta.git
-   cd emosta
-   ```
+    ```sh
+    git clone https://github.com/yourusername/emosta.git
+    cd emosta
+    ```
 
-2. Install the required dependencies:
-   ```
-   pip install -r requirements.txt
-   ```
+2. Create and activate a virtual environment:
+    ```sh
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-3. Set up the Gemini API key:
-   - Obtain an API key from the Google AI Studio (https://makersuite.google.com/)
-   - Set the API key as an environment variable:
-     ```
-     export GEMINI_API_KEY=your_api_key_here
-     ```
+3. Install the required packages:
+    ```sh
+    pip install -r requirements.txt
+    ```
 
-4. Run the application:
-   ```
-   python app.py
-   ```
-
-5. Open a web browser and navigate to `http://localhost:5000` to use the application.
+4. Set up environment variables:
+    - Create a `.env` file in the root directory and add your API keys:
+        ```env
+        GEMINI_API_KEY=your_gemini_api_key
+        PEXELS_API_KEY=your_pexels_api_key
+        ```
 
 ## Usage
 
-1. Allow camera access when prompted, or click the "Upload Photo" button to select an image file.
-2. If using the camera, click "Capture Photo" to take a picture.
-3. Wait for the image to be processed and analyzed.
-4. View your detected emotion, environmental context, and the recommended pasta shape.
+1. Run the Flask application:
+    ```sh
+    python app.py
+    ```
+
+2. Open your browser and go to `http://127.0.0.1:5000/`.
+
+## Project Structure
+
+- `app.py`: Main Flask application.
+- `templates/`: HTML templates.
+- `static/`: Static files (CSS, JavaScript, images).
+-  `script.js`: JavaScript for the frontend, backend, and intengration.
+- `gemini_agent.py`: Python script for interacting with Google Generative AI.
+- `emo_detect.py`: Python script for emotion detection using DeepFace.
 
 ## Contributing
 
